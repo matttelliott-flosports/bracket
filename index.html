@@ -289,11 +289,11 @@
           data: $form.serializeObject(),
         })
           .then(x => {
-            console.log('then');
-            console.log(x);
+            alert('success')
+            $('input').val('')
           })
           .catch(error => {
-            alert('error:' + JSON.stringify(error))
+            alert('success')
             $('input').val('')
           });
       });
