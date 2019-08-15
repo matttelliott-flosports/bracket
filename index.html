@@ -292,7 +292,10 @@
             console.log('then');
             console.log(x);
           })
-          .catch(error => alert(error));
+          .catch(error => {
+            alert('error:' + JSON.stringify(error))
+            $('input').val('')
+          });
       });
     </script>
   </body>
