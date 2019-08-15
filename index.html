@@ -282,16 +282,17 @@
 
       $('#submit-form').on('click', function(e) {
         e.preventDefault();
-        console.log($form);
         var jqxhr = $.ajax({
           url: url,
           method: 'GET',
           dataType: 'json',
           data: $form.serializeObject(),
-        }).then(
-          // do something
-          console.log.bind(console),
-        ).catch(error => alert(error));
+        })
+          .then(x => {
+            console.log('then');
+            console.log(x);
+          })
+          .catch(error => alert(error));
       });
     </script>
   </body>
