@@ -1,302 +1,453 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <style>
-      body {
-        background: url(background.jpg) no-repeat;
-        position: relative;
-      }
 
-      input {
-        position: absolute;
-        width: ;
-      }
-      #round_1_match_1 {
-        top: 145px;
-        left: 140px;
-      }
-      #round_1_match_2 {
-        top: 320px;
-        left: 140px;
-      }
-      #round_1_match_2 {
-        top: 320px;
-        left: 140px;
-      }
-      #round_1_match_3 {
-        top: 500px;
-        left: 140px;
-      }
-      #round_1_match_4 {
-        top: 670px;
-        left: 140px;
-      }
-      #round_1_match_5 {
-        top: 145px;
-        left: 690px;
-      }
-      #round_1_match_6 {
-        top: 320px;
-        left: 690px;
-      }
-      #round_1_match_7 {
-        top: 500px;
-        left: 690px;
-      }
-      #round_1_match_8 {
-        top: 670px;
-        left: 690px;
-      }
-      #round_2_match_1 {
-        top: 235px;
-        left: 235px;
-      }
-      #round_2_match_2 {
-        top: 585px;
-        left: 235px;
-      }
-      #round_2_match_3 {
-        top: 235px;
-        left: 590px;
-      }
-      #round_2_match_4 {
-        top: 585px;
-        left: 590px;
-      }
-      #round_3_match_1 {
-        top: 410px;
-        left: 340px;
-      }
-      #round_3_match_2 {
-        top: 410px;
-        left: 570px;
-      }
-      #round_4_match_1 {
-        top: 450px;
-        left: 430px;
-      }
-      #submit-form {
-        position: absolute;
-        left: 200px;
-      }
-    </style>
-  </head>
-  <body>
-    <form id="test-form">
-      <input
-        type="text"
-        id="round_1_match_1"
-        name="round_1_match_1"
-        placeholder="Round 1 Match 1 Winner"
-      />
-      <input
-        type="text"
-        id="round_1_match_2"
-        name="round_1_match_2"
-        placeholder="Round 1 Match 2 Winner"
-      />
-      <input
-        type="text"
-        id="round_1_match_3"
-        name="round_1_match_3"
-        placeholder="Round 1 Match 3 Winner"
-      />
-      <input
-        type="text"
-        id="round_1_match_4"
-        name="round_1_match_4"
-        placeholder="Round 1 Match 4 Winner"
-      />
-      <input
-        type="text"
-        id="round_1_match_5"
-        name="round_1_match_5"
-        placeholder="Round 1 Match 5 Winner"
-      />
-      <input
-        type="text"
-        id="round_1_match_6"
-        name="round_1_match_6"
-        placeholder="Round 1 Match 6 Winner"
-      />
-      <input
-        type="text"
-        id="round_1_match_7"
-        name="round_1_match_7"
-        placeholder="Round 1 Match 7 Winner"
-      />
-      <input
-        type="text"
-        id="round_1_match_8"
-        name="round_1_match_8"
-        placeholder="Round 1 Match 8 Winner"
-      />
-      <input
-        type="text"
-        id="round_2_match_1"
-        name="round_2_match_1"
-        placeholder="Round 2 Match 1 Winner"
-      />
-      <input
-        type="text"
-        id="round_2_match_2"
-        name="round_2_match_2"
-        placeholder="Round 2 Match 2 Winner"
-      />
-      <input
-        type="text"
-        id="round_2_match_3"
-        name="round_2_match_3"
-        placeholder="Round 2 Match 3 Winner"
-      />
-      <input
-        type="text"
-        id="round_2_match_4"
-        name="round_2_match_4"
-        placeholder="Round 2 Match 4 Winner"
-      />
-      <input
-        type="text"
-        id="round_3_match_1"
-        name="round_3_match_1"
-        placeholder="Round 3 Match 1 Winner"
-      />
-      <input
-        type="text"
-        id="round_3_match_2"
-        name="round_3_match_2"
-        placeholder="Round 3 Match 2 Winner"
-      />
-      <input
-        type="text"
-        id="round_4_match_1"
-        name="round_4_match_1"
-        placeholder="Champion"
-      />
-      <input type="email" id="email" name="email" placeholder="email" />
-      <button type="submit" id="submit-form">Submit</button>
-    </form>
-    <script>
-      /**
-       * jQuery serializeObject
-       * @copyright 2014, macek <paulmacek@gmail.com>
-       * @link https://github.com/macek/jquery-serialize-object
-       * @license BSD
-       * @version 2.5.0
-       */
-      !(function(e, i) {
-        if ('function' == typeof define && define.amd)
-          define(['exports', 'jquery'], function(e, r) {
-            return i(e, r);
-          });
-        else if ('undefined' != typeof exports) {
-          var r = require('jquery');
-          i(exports, r);
-        } else i(e, e.jQuery || e.Zepto || e.ender || e.$);
-      })(this, function(e, i) {
-        function r(e, r) {
-          function n(e, i, r) {
-            return (e[i] = r), e;
-          }
-          function a(e, i) {
-            for (var r, a = e.match(t.key); void 0 !== (r = a.pop()); )
-              if (t.push.test(r)) {
-                var u = s(e.replace(/\[\]$/, ''));
-                i = n([], u, i);
-              } else
-                t.fixed.test(r)
-                  ? (i = n([], r, i))
-                  : t.named.test(r) && (i = n({}, r, i));
-            return i;
-          }
-          function s(e) {
-            return void 0 === h[e] && (h[e] = 0), h[e]++;
-          }
-          function u(e) {
-            switch (i('[name="' + e.name + '"]', r).attr('type')) {
-              case 'checkbox':
-                return 'on' === e.value ? !0 : e.value;
-              default:
-                return e.value;
-            }
-          }
-          function f(i) {
-            if (!t.validate.test(i.name)) return this;
-            var r = a(i.name, u(i));
-            return (l = e.extend(!0, l, r)), this;
-          }
-          function d(i) {
-            if (!e.isArray(i))
-              throw new Error('formSerializer.addPairs expects an Array');
-            for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
-            return this;
-          }
-          function o() {
-            return l;
-          }
-          function c() {
-            return JSON.stringify(o());
-          }
-          var l = {},
-            h = {};
-          (this.addPair = f),
-            (this.addPairs = d),
-            (this.serialize = o),
-            (this.serializeJSON = c);
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: url(background.jpg) no-repeat;
+      position: relative;
+    }
+
+    input,
+    select {
+      position: absolute;
+      width: 90px;
+    }
+
+    #round_0_match_1 {
+      top: 115px;
+      left: 40px;
+    }
+
+    #round_0_match_2 {
+      top: 185px;
+      left: 40px;
+    }
+
+    #round_0_match_3 {
+      top: 285px;
+      left: 40px;
+    }
+
+    #round_0_match_4 {
+      top: 365px;
+      left: 40px;
+    }
+
+    #round_0_match_5 {
+      top: 465px;
+      left: 40px;
+    }
+
+    #round_0_match_6 {
+      top: 535px;
+      left: 40px;
+    }
+
+    #round_0_match_7 {
+      top: 635px;
+      left: 40px;
+    }
+
+    #round_0_match_8 {
+      top: 715px;
+      left: 40px;
+    }
+
+    #round_0_match_9 {
+      top: 115px;
+      left: 870px;
+    }
+
+    #round_0_match_10 {
+      top: 185px;
+      left: 870px;
+    }
+
+    #round_0_match_11 {
+      top: 285px;
+      left: 870px;
+    }
+
+    #round_0_match_12 {
+      top: 365px;
+      left: 870px;
+    }
+
+    #round_0_match_13 {
+      top: 465px;
+      left: 870px;
+    }
+
+    #round_0_match_14 {
+      top: 535px;
+      left: 870px;
+    }
+
+    #round_0_match_15 {
+      top: 635px;
+      left: 870px;
+    }
+
+    #round_0_match_16 {
+      top: 715px;
+      left: 870px;
+    }
+
+    #round_1_match_1 {
+      top: 145px;
+      left: 140px;
+    }
+
+    #round_1_match_2 {
+      top: 320px;
+      left: 140px;
+    }
+
+    #round_1_match_2 {
+      top: 320px;
+      left: 140px;
+    }
+
+    #round_1_match_3 {
+      top: 500px;
+      left: 140px;
+    }
+
+    #round_1_match_4 {
+      top: 670px;
+      left: 140px;
+    }
+
+    #round_1_match_5 {
+      top: 145px;
+      left: 770px;
+    }
+
+    #round_1_match_6 {
+      top: 320px;
+      left: 770px;
+    }
+
+    #round_1_match_7 {
+      top: 500px;
+      left: 770px;
+    }
+
+    #round_1_match_8 {
+      top: 670px;
+      left: 770px;
+    }
+
+    #round_2_match_1 {
+      top: 235px;
+      left: 235px;
+    }
+
+    #round_2_match_2 {
+      top: 585px;
+      left: 235px;
+    }
+
+    #round_2_match_3 {
+      top: 235px;
+      left: 670px;
+    }
+
+    #round_2_match_4 {
+      top: 585px;
+      left: 670px;
+    }
+
+    #round_3_match_1 {
+      top: 410px;
+      left: 340px;
+    }
+
+    #round_3_match_2 {
+      top: 410px;
+      left: 570px;
+    }
+
+    #round_4_match_1 {
+      top: 450px;
+      left: 455px;
+    }
+
+    #submit-form {
+      position: absolute;
+      left: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="test-form">
+    <select type="text" id="round_0_match_1" name="round_0_match_1" placeholder="Round 0 Match 1 Winner">
+      <option value="Team 1">Team 1</option>
+      <option value="Team 2">Team 2</option>
+      <option value="Team 3">Team 3</option>
+      <option value="Team 4">Team 4</option>
+      <option value="Team 5">Team 5</option>
+    </select>/>
+
+    <select type="text" id="round_0_match_2" name="round_0_match_2" placeholder="Round 0 Match 2 Winner" />
+    <option value="Team 6">Team 6</option>
+    <option value="Team 7">Team 7</option>
+    <option value="Team 8">Team 8</option>
+    <option value="Team 9">Team 9</option>
+    <option value="Team 10">Team 10</option>
+    </select>
+
+    <select type="text" id="round_0_match_3" name="round_0_match_3" placeholder="Round 0 Match 3 Winner" />
+    <option value="Team 11">Team 11</option>
+    <option value="Team 12">Team 12</option>
+    <option value="Team 13">Team 13</option>
+    <option value="Team 14">Team 14</option>
+    <option value="Team 15">Team 15</option>
+    </select>
+
+    <select type="text" id="round_0_match_4" name="round_0_match_4" placeholder="Round 0 Match 4 Winner" />
+    <option value="Team 16">Team 16</option>
+    <option value="Team 17">Team 17</option>
+    <option value="Team 18">Team 18</option>
+    <option value="Team 19">Team 19</option>
+    <option value="Team 20">Team 20</option>
+    </select>
+
+    <select type="text" id="round_0_match_5" name="round_0_match_5" placeholder="Round 0 Match 5 Winner" />
+    <option value="Team 21">Team 21</option>
+    <option value="Team 22">Team 22</option>
+    <option value="Team 23">Team 23</option>
+    <option value="Team 24">Team 24</option>
+    <option value="Team 25">Team 25</option>
+    </select>
+
+    <select type="text" id="round_0_match_6" name="round_0_match_6" placeholder="Round 0 Match 6 Winner" />
+    <option value="Team 26">Team 26</option>
+    <option value="Team 27">Team 27</option>
+    <option value="Team 28">Team 28</option>
+    <option value="Team 29">Team 29</option>
+    <option value="Team 30">Team 30</option>
+    </select>
+
+    <select type="text" id="round_0_match_7" name="round_0_match_7" placeholder="Round 0 Match 7 Winner" />
+    <option value="Team 31">Team 31</option>
+    <option value="Team 32">Team 32</option>
+    <option value="Team 33">Team 33</option>
+    <option value="Team 34">Team 34</option>
+    <option value="Team 35">Team 35</option>
+    </select>
+
+    <select type="text" id="round_0_match_8" name="round_0_match_8" placeholder="Round 0 Match 8 Winner" />
+    <option value="Team 36">Team 36</option>
+    <option value="Team 37">Team 37</option>
+    <option value="Team 38">Team 38</option>
+    <option value="Team 39">Team 39</option>
+    <option value="Team 40">Team 40</option>
+    </select>
+
+    <select type="text" id="round_0_match_9" name="round_0_match_9" placeholder="Round 0 Match 9 Winner">
+      <option value="Team 1">Team 1</option>
+      <option value="Team 2">Team 2</option>
+      <option value="Team 3">Team 3</option>
+      <option value="Team 4">Team 4</option>
+      <option value="Team 5">Team 5</option>
+    </select>/>
+
+    <select type="text" id="round_0_match_10" name="round_0_match_10" placeholder="Round 0 Match 10 Winner" />
+    <option value="Team 6">Team 6</option>
+    <option value="Team 7">Team 7</option>
+    <option value="Team 8">Team 8</option>
+    <option value="Team 9">Team 9</option>
+    <option value="Team 10">Team 10</option>
+    </select>
+
+    <select type="text" id="round_0_match_11" name="round_0_match_11" placeholder="Round 0 Match 11 Winner" />
+    <option value="Team 11">Team 11</option>
+    <option value="Team 12">Team 12</option>
+    <option value="Team 13">Team 13</option>
+    <option value="Team 14">Team 14</option>
+    <option value="Team 15">Team 15</option>
+    </select>
+
+    <select type="text" id="round_0_match_12" name="round_0_match_12" placeholder="Round 0 Match 12 Winner" />
+    <option value="Team 16">Team 16</option>
+    <option value="Team 17">Team 17</option>
+    <option value="Team 18">Team 18</option>
+    <option value="Team 19">Team 19</option>
+    <option value="Team 20">Team 20</option>
+    </select>
+
+    <select type="text" id="round_0_match_13" name="round_0_match_13" placeholder="Round 0 Match 13 Winner" />
+    <option value="Team 21">Team 21</option>
+    <option value="Team 22">Team 22</option>
+    <option value="Team 23">Team 23</option>
+    <option value="Team 24">Team 24</option>
+    <option value="Team 25">Team 25</option>
+    </select>
+
+    <select type="text" id="round_0_match_14" name="round_0_match_14" placeholder="Round 0 Match 14 Winner" />
+    <option value="Team 26">Team 26</option>
+    <option value="Team 27">Team 27</option>
+    <option value="Team 28">Team 28</option>
+    <option value="Team 29">Team 29</option>
+    <option value="Team 30">Team 30</option>
+    </select>
+
+    <select type="text" id="round_0_match_15" name="round_0_match_15" placeholder="Round 0 Match 15 Winner" />
+    <option value="Team 31">Team 31</option>
+    <option value="Team 32">Team 32</option>
+    <option value="Team 33">Team 33</option>
+    <option value="Team 34">Team 34</option>
+    <option value="Team 35">Team 35</option>
+    </select>
+
+    <select type="text" id="round_0_match_16" name="round_0_match_16" placeholder="Round 0 Match 16 Winner" />
+    <option value="Team 36">Team 36</option>
+    <option value="Team 37">Team 37</option>
+    <option value="Team 38">Team 38</option>
+    <option value="Team 39">Team 39</option>
+    <option value="Team 40">Team 40</option>
+    </select>
+
+    <input type="text" id="round_1_match_1" name="round_1_match_1" placeholder="Round 1 Match 1 Winner" />
+    <input type="text" id="round_1_match_2" name="round_1_match_2" placeholder="Round 1 Match 2 Winner" />
+    <input type="text" id="round_1_match_3" name="round_1_match_3" placeholder="Round 1 Match 3 Winner" />
+    <input type="text" id="round_1_match_4" name="round_1_match_4" placeholder="Round 1 Match 4 Winner" />
+    <input type="text" id="round_1_match_5" name="round_1_match_5" placeholder="Round 1 Match 5 Winner" />
+    <input type="text" id="round_1_match_6" name="round_1_match_6" placeholder="Round 1 Match 6 Winner" />
+    <input type="text" id="round_1_match_7" name="round_1_match_7" placeholder="Round 1 Match 7 Winner" />
+    <input type="text" id="round_1_match_8" name="round_1_match_8" placeholder="Round 1 Match 8 Winner" />
+    <input type="text" id="round_2_match_1" name="round_2_match_1" placeholder="Round 2 Match 1 Winner" />
+    <input type="text" id="round_2_match_2" name="round_2_match_2" placeholder="Round 2 Match 2 Winner" />
+    <input type="text" id="round_2_match_3" name="round_2_match_3" placeholder="Round 2 Match 3 Winner" />
+    <input type="text" id="round_2_match_4" name="round_2_match_4" placeholder="Round 2 Match 4 Winner" />
+    <input type="text" id="round_3_match_1" name="round_3_match_1" placeholder="Round 3 Match 1 Winner" />
+    <input type="text" id="round_3_match_2" name="round_3_match_2" placeholder="Round 3 Match 2 Winner" />
+    <input type="text" id="round_4_match_1" name="round_4_match_1" placeholder="Champion" />
+    <input type="email" id="email" name="email" placeholder="email" />
+    <button type="submit" id="submit-form">Submit</button>
+  </form>
+  <script>
+    /**
+     * jQuery serializeObject
+     * @copyright 2014, macek <paulmacek@gmail.com>
+     * @link https://github.com/macek/jquery-serialize-object
+     * @license BSD
+     * @version 2.5.0
+     */
+    !(function (e, i) {
+      if ('function' == typeof define && define.amd)
+        define(['exports', 'jquery'], function (e, r) {
+          return i(e, r);
+        });
+      else if ('undefined' != typeof exports) {
+        var r = require('jquery');
+        i(exports, r);
+      } else i(e, e.jQuery || e.Zepto || e.ender || e.$);
+    })(this, function (e, i) {
+      function r(e, r) {
+        function n(e, i, r) {
+          return (e[i] = r), e;
         }
-        var t = {
-          validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
-          key: /[a-z0-9_]+|(?=\[\])/gi,
-          push: /^$/,
-          fixed: /^\d+$/,
-          named: /^[a-z0-9_]+$/i,
-        };
-        return (
-          (r.patterns = t),
-          (r.serializeObject = function() {
-            return new r(i, this).addPairs(this.serializeArray()).serialize();
-          }),
-          (r.serializeJSON = function() {
-            return new r(i, this)
-              .addPairs(this.serializeArray())
-              .serializeJSON();
-          }),
-          'undefined' != typeof i.fn &&
-            ((i.fn.serializeObject = r.serializeObject),
-            (i.fn.serializeJSON = r.serializeJSON)),
-          (e.FormSerializer = r),
-          r
-        );
-      });
-    </script>
+        function a(e, i) {
+          for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+            if (t.push.test(r)) {
+              var u = s(e.replace(/\[\]$/, ''));
+              i = n([], u, i);
+            } else
+              t.fixed.test(r)
+                ? (i = n([], r, i))
+                : t.named.test(r) && (i = n({}, r, i));
+          return i;
+        }
+        function s(e) {
+          return void 0 === h[e] && (h[e] = 0), h[e]++;
+        }
+        function u(e) {
+          switch (i('[name="' + e.name + '"]', r).attr('type')) {
+            case 'checkbox':
+              return 'on' === e.value ? !0 : e.value;
+            default:
+              return e.value;
+          }
+        }
+        function f(i) {
+          if (!t.validate.test(i.name)) return this;
+          var r = a(i.name, u(i));
+          return (l = e.extend(!0, l, r)), this;
+        }
+        function d(i) {
+          if (!e.isArray(i))
+            throw new Error('formSerializer.addPairs expects an Array');
+          for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+          return this;
+        }
+        function o() {
+          return l;
+        }
+        function c() {
+          return JSON.stringify(o());
+        }
+        var l = {},
+          h = {};
+        (this.addPair = f),
+          (this.addPairs = d),
+          (this.serialize = o),
+          (this.serializeJSON = c);
+      }
+      var t = {
+        validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+        key: /[a-z0-9_]+|(?=\[\])/gi,
+        push: /^$/,
+        fixed: /^\d+$/,
+        named: /^[a-z0-9_]+$/i,
+      };
+      return (
+        (r.patterns = t),
+        (r.serializeObject = function () {
+          return new r(i, this).addPairs(this.serializeArray()).serialize();
+        }),
+        (r.serializeJSON = function () {
+          return new r(i, this)
+            .addPairs(this.serializeArray())
+            .serializeJSON();
+        }),
+        'undefined' != typeof i.fn &&
+        ((i.fn.serializeObject = r.serializeObject),
+          (i.fn.serializeJSON = r.serializeJSON)),
+        (e.FormSerializer = r),
+        r
+      );
+    });
+  </script>
 
-    <script>
-      var $form = $('form#test-form'),
-        url =
-          'https://script.google.com/macros/s/AKfycbwo1BV5PPuealcOAmdHI6T4nABM_i_W4QW4rc3ZD-Jqur1YSZMI/exec';
+  <script>
+    var $form = $('form#test-form'),
+      url =
+        'https://script.google.com/macros/s/AKfycbwo1BV5PPuealcOAmdHI6T4nABM_i_W4QW4rc3ZD-Jqur1YSZMI/exec';
 
-      $('#submit-form').on('click', function(e) {
-        e.preventDefault();
-        var jqxhr = $.ajax({
-          url: url,
-          method: 'GET',
-          dataType: 'json',
-          data: $form.serializeObject(),
+    $('#submit-form').on('click', function (e) {
+      e.preventDefault();
+      var jqxhr = $.ajax({
+        url: url,
+        method: 'GET',
+        dataType: 'json',
+        data: $form.serializeObject(),
+      })
+        .then(x => {
+          alert('success')
+          $('input').val('')
         })
-          .then(x => {
-            alert('success')
-            $('input').val('')
-          })
-          .catch(error => {
-            alert('success')
-            $('input').val('')
-          });
-      });
-    </script>
-  </body>
+        .catch(error => {
+          alert('success')
+          $('input').val('')
+        });
+    });
+  </script>
+</body>
+
 </html>
