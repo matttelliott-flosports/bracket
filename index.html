@@ -439,10 +439,12 @@
         data: $form.serializeObject(),
       })
         .then(x => {
+          console.log(x)
           alert('success')
           $('input').val('')
         })
         .catch(error => {
+          console.error(error)
           alert('success')
           $('input').val('')
         });
